@@ -1,16 +1,15 @@
 @extends('library::layouts.app')
 
 @section('content')
-<h2>Books</h2>
-
-@auth
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Books</h2>
     @if(auth()->user()->hasRole('admin'))
-        <a href="{{ route('books.create') }}">+ New Book</a>
+        <a href="{{ route('books.create') }}" class="btn btn-success">+ New Book</a>
     @endif
-@endauth
+</div>
 
-<table border="1" cellpadding="6">
-    <thead>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
         <tr>
             <th>Title</th><th>Author</th><th>ISBN</th><th>Status</th><th>Actions</th>
         </tr>
@@ -21,13 +20,17 @@
             <td>{{ $book->title }}</td>
             <td>{{ $book->author }}</td>
             <td>{{ $book->isbn }}</td>
-            <td>{{ ucfirst($book->status) }}</td>
+            <td>
+                <span class="badge bg-{{ $book->status === 'available' ? 'success' : 'secondary' }}">
+                    {{ ucfirst($book->status) }}
+                </span>
+            </td>
             <td>
                 @if(auth()->user()->hasRole('admin'))
-                    <a href="{{ route('books.edit', $book) }}">Edit</a>
-                    <form method="POST" action="{{ route('books.destroy', $book) }}" style="display:inline">
+                    <a href="{{ route('books.edit', $book) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form method="POST" action="{{ route('books.destroy', $book) }}" class="d-inline">
                         @csrf @method('DELETE')
-                        <button type="submit" onclick="return confirm('Delete?')">Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete?')">Delete</button>
                     </form>
                 @else
                     <em>View only</em>
@@ -38,5 +41,5 @@
     </tbody>
 </table>
 
-{{ $books->links() }}
+{{ $books->links('pagination::bootstrap-5') }}
 @endsection

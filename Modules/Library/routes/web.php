@@ -5,23 +5,6 @@ use Illuminate\Support\Facades\Auth;
 use Modules\Library\app\Http\Controllers\BookController;
 use Modules\Library\app\Http\Controllers\DashboardController;
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-//     // Books
-//     Route::get('/books', [BookController::class, 'index'])->name('books.index');
-
-//     // Admin-only CRUD
-//     Route::middleware('role:admin')->group(function () {
-//         Route::get('/books/create', [BookController::class, 'create'])->name('books.create');
-//         Route::post('/books', [BookController::class, 'store'])->name('books.store');
-//         Route::get('/books/{book}/edit', [BookController::class, 'edit'])->name('books.edit');
-//         Route::put('/books/{book}', [BookController::class, 'update'])->name('books.update');
-//         Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
-//     });
-// });
-
-
 
 Route::middleware(['auth'])->group(function () {
     // Dashboard

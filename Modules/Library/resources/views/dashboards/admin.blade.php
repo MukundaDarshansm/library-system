@@ -1,7 +1,11 @@
 @extends('library::layouts.app')
 
 @section('content')
-<h1>Admin Dashboard</h1>
-<p>You have full access to manage books.</p>
-<a href="{{ route('books.create') }}">Create Book</a>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Admin Dashboard</h1>
+        <p class="card-text">You have full access to manage books.</p>
+        <a href="{{ route('books.create') }}" class="btn btn-primary">Create Book</a>
+    </div>
+</div>
 @endsection
