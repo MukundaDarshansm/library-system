@@ -1,4 +1,4 @@
-# 📚 Library Management System (Laravel + Modules)
+# 📚 Library System (Laravel + Modules)
 
 A modular Laravel application for managing books with role-based access control.  
 Built using [nwidart/laravel-modules](https://nwidart.com/laravel-modules), featuring **Auth** and **Library** modules.
