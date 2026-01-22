@@ -56,5 +56,7 @@ Books
 
 Notes
 Laravel 12.x, PHP 8.x, MySQL
+
 Modular via nwidart/laravel-modules
+
 Blade UI with Bootstrap/Tailwind
