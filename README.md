@@ -6,7 +6,7 @@ Built using [nwidart/laravel-modules](https://nwidart.com/laravel-modules), feat
 ---
 
 ## 🚀 Live Demo
-🔗 **URL:** https://your-deployed-url.com  
+🔗 **URL:** https://task.oreocoderz.com/
 
 ---
 
@@ -27,5 +27,38 @@ A default user account also exists:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/library-app.git
-cd library-app
+git clone https://github.com/MukundaDarshansm/library-system.git
+cd library-system
+
+# Install dependencies
+composer install
+npm install
+npm run dev
+
+# Environment setup
+cp .env.example .env
+php artisan key:generate
+
+# Database migration & seeding
+php artisan migrate --seed
+
+# Start dev server
+php artisan serve
+
+
+| Method | Endpoint          | Description         | Role  |
+| ------ | ----------------- | ------------------- | ----- |
+| GET    | `/api/books`      | List all books      | All   |
+| GET    | `/api/books/{id}` | Book details        | Admin |
+| POST   | `/api/books`      | Create new book     | Admin |
+| PUT    | `/api/books/{id}` | Update book details | Admin |
+| DELETE | `/api/books/{id}` | Delete book         | Admin |
+
+
+Notes
+
+Laravel 12.x, PHP 8.x, MySQL
+
+Modular via nwidart/laravel-modules
+
+Blade UI with Bootstrap
